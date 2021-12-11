@@ -7,7 +7,7 @@ from cryptography.hazmat.primitives import padding
 class encryption_method(Enum):
     Camellia = 1
     AES = 2
-    Kalina = 3
+    Kalyna = 3
 
 
 def add_padding(data, size=128):
