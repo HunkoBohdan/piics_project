@@ -1,9 +1,9 @@
-from src.backend import encryption_method, encrypt, decrypt
+from src.backend import encryption_method, generate_random_sym_key, encrypt, decrypt
 import os
 
 if __name__ == '__main__':
     enc_method = encryption_method.Kalyna
-    sym_key = "someTestKeyHere_"
+    sym_key = generate_random_sym_key(32)
     text = "some sample text here"
 
     script_dir = os.path.dirname(__file__)

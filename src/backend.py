@@ -6,12 +6,18 @@ from src.kalyna_cipher.classDecryption import classDecryption
 from src.kalyna_cipher.classBasic import classBasic
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
+import random
+import string
 
 
 class encryption_method(Enum):
     Camellia = 1
     AES = 2
     Kalyna = 3
+
+
+def generate_random_sym_key(key_length):
+    return ''.join(random.choice(string.printable) for _ in range(key_length))
 
 
 def add_padding(data, size=128):
