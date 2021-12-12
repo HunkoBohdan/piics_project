@@ -1,4 +1,4 @@
-from kalyna_cipher.classTable import classTable
+from src.kalyna_cipher.classTable import classTable
 from functools import reduce
 
 
