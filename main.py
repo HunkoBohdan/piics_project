@@ -1,4 +1,4 @@
-from src.backend import encryption_method, generate_random_sym_key, encrypt, decrypt
+from backend import encryption_method, generate_random_sym_key, encrypt, decrypt
 import os
 
 if __name__ == '__main__':

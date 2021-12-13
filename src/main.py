@@ -7,6 +7,8 @@ from PySide2.QtWidgets import QApplication, QWidget
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
 
+from backend import encryption_method, generate_random_sym_key, encrypt, decrypt
+
 ui = None
 
 
@@ -14,6 +16,12 @@ class main_window(QWidget):
     def __init__(self):
         super(main_window, self).__init__()
         self.load_ui()
+        self.set_default_values()
+
+    def set_default_values(self):
+        ui.camellia_rb.setChecked(True)
+        ui.generate_rb.setChecked(True)
+        ui.msg_file_rb.setChecked(True)
 
     def load_ui(self):
         loader = QUiLoader()
