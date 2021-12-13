@@ -23,7 +23,7 @@ class main_window(QWidget):
         global ui
         ui = loader.load(ui_file, self)
         ui_file.close()
-        self.setWindowTitle("KI-42");
+        self.setWindowTitle("KI-42")
         self.setFixedSize(1000, 600)
 
 

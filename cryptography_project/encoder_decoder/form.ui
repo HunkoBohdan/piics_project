@@ -71,7 +71,7 @@
       </font>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="encrypt_tab">
       <property name="sizePolicy">
@@ -102,7 +102,7 @@
            <number>100</number>
           </property>
           <item row="0" column="1">
-           <widget class="QRadioButton" name="radioButton_7">
+           <widget class="QRadioButton" name="generate_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -114,7 +114,7 @@
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QRadioButton" name="radioButton_8">
+           <widget class="QRadioButton" name="sym_key_input_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -230,7 +230,7 @@
            <number>100</number>
           </property>
           <item row="0" column="2">
-           <widget class="QRadioButton" name="radioButton_12">
+           <widget class="QRadioButton" name="msg_inpub_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -255,7 +255,7 @@
            </spacer>
           </item>
           <item row="0" column="1">
-           <widget class="QRadioButton" name="radioButton_11">
+           <widget class="QRadioButton" name="msg_file_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -373,7 +373,19 @@
        <item row="9" column="0">
         <layout class="QGridLayout" name="gridLayout_14">
          <item row="0" column="0">
-          <widget class="QLineEdit" name="lineEdit_3">
+          <widget class="QLineEdit" name="asym_pub_key_path">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -382,7 +394,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="pushButton_4">
+          <widget class="QPushButton" name="asym_pub_key_btn">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -396,7 +408,7 @@
         </layout>
        </item>
        <item row="14" column="0">
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="encrypt_btn">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -441,7 +453,7 @@
            <number>100</number>
           </property>
           <item row="0" column="3">
-           <widget class="QRadioButton" name="radioButton_3">
+           <widget class="QRadioButton" name="kalyna_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -453,7 +465,7 @@
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QRadioButton" name="radioButton_2">
+           <widget class="QRadioButton" name="aes_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -465,7 +477,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QRadioButton" name="radioButton">
+           <widget class="QRadioButton" name="camellia_rb">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -520,17 +532,8 @@
        </item>
        <item row="13" column="0">
         <layout class="QGridLayout" name="gridLayout_8">
-         <item row="0" column="0">
-          <widget class="QLineEdit" name="lineEdit_2">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="msg_btn">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -541,12 +544,39 @@
            </property>
           </widget>
          </item>
+         <item row="0" column="0">
+          <widget class="QTextEdit" name="msg_line_edit">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item row="6" column="0">
         <layout class="QGridLayout" name="gridLayout_7">
          <item row="0" column="0">
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLineEdit" name="sym_key_line_edit">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -555,7 +585,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="generate_btn">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -720,7 +750,13 @@
        <item row="5" column="0">
         <layout class="QGridLayout" name="gridLayout_21">
          <item row="0" column="0">
-          <widget class="QLineEdit" name="lineEdit_5">
+          <widget class="QLineEdit" name="encrypted_msg_path">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -729,7 +765,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="encrypted_file_btn">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -743,7 +779,7 @@
         </layout>
        </item>
        <item row="6" column="0">
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="decrypt_btn">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -757,7 +793,13 @@
        <item row="2" column="0">
         <layout class="QGridLayout" name="gridLayout_18">
          <item row="0" column="0">
-          <widget class="QLineEdit" name="lineEdit_4">
+          <widget class="QLineEdit" name="asym_priv_key_path">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -766,7 +808,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="pushButton_5">
+          <widget class="QPushButton" name="asym_priv_key_btn">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
