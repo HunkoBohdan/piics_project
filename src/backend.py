@@ -1,9 +1,9 @@
 from enum import Enum
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import padding
-from src.kalyna_cipher.classEncryption import classEncryption
-from src.kalyna_cipher.classDecryption import classDecryption
-from src.kalyna_cipher.classBasic import classBasic
+from kalyna_cipher.classEncryption import classEncryption
+from kalyna_cipher.classDecryption import classDecryption
+from kalyna_cipher.classBasic import classBasic
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 import random

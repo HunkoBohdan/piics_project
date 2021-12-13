@@ -1,6 +1,6 @@
-from src.kalyna_cipher.classRound import classRound
-from src.kalyna_cipher.classTable import classTable
-from src.kalyna_cipher.classKey import classKey
+from kalyna_cipher.classRound import classRound
+from kalyna_cipher.classTable import classTable
+from kalyna_cipher.classKey import classKey
 
 
 class classEncryption:

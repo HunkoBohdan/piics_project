@@ -1,5 +1,5 @@
-from src.kalyna_cipher.classBasic import classBasic
-from src.kalyna_cipher.classTable import classTable
+from kalyna_cipher.classBasic import classBasic
+from kalyna_cipher.classTable import classTable
 from functools import reduce
 
 
