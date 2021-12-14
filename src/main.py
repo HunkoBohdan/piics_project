@@ -6,6 +6,7 @@ import os
 from PySide2.QtWidgets import QApplication, QWidget, QMessageBox, QFileDialog
 from PySide2.QtCore import QFile
 from PySide2.QtUiTools import QUiLoader
+import PySide2
 
 from backend import encryption_method, generate_random_sym_key, encrypt, decrypt
 
@@ -21,6 +22,26 @@ class main_window(QWidget):
         err_box.setStandardButtons(QMessageBox.Ok)
         err_box.setStyleSheet("font-size: 12px")
         err_box.exec()
+
+    def set_file_path(self, window_title, element):
+        file_path = QFileDialog.getOpenFileName(
+            self, window_title, "c:\\")[0]
+        element.setText(file_path)
+
+    def read_from_file(self, element):
+        if type(element) == PySide2.QtWidgets.QLineEdit:
+            file_path = element.text()
+        else:
+            file_path = element.toPlainText()
+        if os.path.isfile(file_path):
+            with open(file_path, "r") as f:
+                return f.read()
+
+    def write_to_file(self, data):
+        file_path = QFileDialog.getSaveFileName(
+            self, "Select where to save file", "c:\\encrypted_msg.hex")[0]
+        with open(file_path, 'wb') as f:
+            f.write(data)
 
     def get_key_length(self, enc_method):
         return 32 if enc_method == encryption_method.Kalyna else 16
@@ -40,28 +61,14 @@ class main_window(QWidget):
         return sym_key
 
     def get_asym_pub_key(self):
-        asym_key_path = ui.asym_pub_key_path.text()
-        if os.path.isfile(asym_key_path):
-            with open(asym_key_path, "r") as f:
-                return f.read()
-        return None
+        return self.read_from_file(ui.asym_pub_key_path)
 
     def get_msg(self):
         if ui.msg_input_rb.isChecked():
             msg = ui.msg_line_edit.toPlainText()
             return msg if msg != "" else None
 
-        msg_path = ui.msg_line_edit.toPlainText()
-        if os.path.isfile(msg_path):
-            with open(msg_path, "r") as f:
-                return f.read()
-        return None
-
-    def write_to_file(self, data):
-        file_path = QFileDialog.getSaveFileName(
-            self, "Select where to save file", "c:\\")[0]
-        with open(file_path, 'wb') as f:
-            f.write(data)
+        return self.read_from_file(ui.msg_line_edit)
 
     def on_generate_btn_click(self):
         enc_method = self.get_encryption_method()
@@ -69,9 +76,8 @@ class main_window(QWidget):
         ui.sym_key_line_edit.setText(generate_random_sym_key(sym_key_len))
 
     def on_asym_pub_key_btn_btn_click(self):
-        pub_key_path = QFileDialog.getOpenFileName(
-            self, "Select asymmetric public key", "c:\\")[0]
-        ui.asym_pub_key_path.setText(pub_key_path)
+        self.set_file_path("Select asymmetric public key",
+                           ui.asym_pub_key_path)
 
     def on_msg_input_rb_click(self):
         ui.msg_btn.setVisible(0)
@@ -80,9 +86,7 @@ class main_window(QWidget):
         ui.msg_btn.setVisible(1)
 
     def on_msg_btn_click(self):
-        msg_path = QFileDialog.getOpenFileName(
-            self, "Select asymmetric public key", "c:\\")[0]
-        ui.msg_line_edit.setText(msg_path)
+        self.set_file_path("Select message file", ui.msg_line_edit)
 
     def on_encrypt_btn_click(self):
         enc_method = self.get_encryption_method()
